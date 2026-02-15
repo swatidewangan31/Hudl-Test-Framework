@@ -1,0 +1,25 @@
+export const  invalidEmailAddressTestData = [ 
+    {text: "test.com"}, 
+    {text : "@test.com"},
+    {text : "test@"},
+    {text : "test@.com"},
+    {text : "test@test"},
+    {text : "test@com."},
+    {text : "test@@test.com"},
+    {text : "te@st@test.com"},
+    {text : ".test@test.com"},
+    {text : "test.@test.com"},
+    {text : "test@.test.com"},
+    {text : "test@test.com."},
+    {text : "test@test..com"},
+    {text : "test<>@test.com"},
+    {text : "test()@test.com"},
+    {text : "test[]@test.com"},
+    {text : "test;@test.com."},
+    {text : "test,test@test.com"},
+    {text : "test:test@test.com"},
+    {text : "test\test@test.com"},
+    {text : "test @test.com"},
+    {text : "test@ test.com"}
+
+]

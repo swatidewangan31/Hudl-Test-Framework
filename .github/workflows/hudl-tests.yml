@@ -1,0 +1,27 @@
+name: Hudl Test Framework
+on: 
+  push:
+    branches: 
+      - master
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:latest
+      options: --user 1001
+    strategy:
+      #don't fail the entire matrix on failure
+      fail-fast: false
+      matrix:
+        #run tests in parallel
+        containers: [1,2]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Hudl Tests suite
+        uses: cypress-io/github-action@v6
+        with:
+          record: false
+          browser: chrome
