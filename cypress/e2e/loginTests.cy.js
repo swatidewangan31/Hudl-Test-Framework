@@ -49,7 +49,7 @@ describe('Login Tests with positive and negative scenarios', () => {
 
   //Login with valid credentials
   it(' Login with valid email address and valid  password', () =>{
-      loginPage.enterValidCredentialsAndVerify(credentials.email, credentials.validPassword)  
+      loginPage.enterValidCredentialsAndVerify(credentials.email)  
       homePage.verifyHudlHomePage(url.homePageUrl)
   })
 })  

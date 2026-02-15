@@ -70,11 +70,16 @@ export class LoginPage {
 
     //Enter valid email address, valid password and verify the home page
     enterValidCredentialsAndVerify (email, password) {
-        cy.origin(this.originUrl, {args: {email, password}},
-            ({email, password}) => {
+        const userPassword = password ?? Cypress.env('PASSWORD');
+
+        if (!userPassword) {
+    throw new Error('Password is not defined. Set Cypress.env("PASSWORD") or pass password explicitly.');
+  }
+        cy.origin(this.originUrl, {args: {email, userPassword}},
+            ({email, userPassword}) => {
                 cy.get("#username").clear().type(email);
                 cy.get('body > code > div > main > section > div > div > div > div.cc8f6f2dc.c67c08a4d > div > form > div.c264f040d > button').click();
-                cy.get("#password").clear().type(password);
+                cy.get("#password").clear().type(userPassword);
                 cy.get('body > code > div > main > section > div > div > div > form > div.c264f040d > button').click();
         }
     )}

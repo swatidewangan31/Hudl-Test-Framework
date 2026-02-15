@@ -25,3 +25,5 @@ jobs:
         with:
           record: false
           browser: chrome
+        env:
+          CYPRESS_PASSWORD: ${{ secrets.HUDL_PASSWORD }}
